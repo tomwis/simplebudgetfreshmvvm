@@ -11,20 +11,24 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid BackgroundColor="{Binding BackgroundColor}" Margin="0,12" Padding="12" RowSpacing="0" ColumnSpacing="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Text="{res:Localize MoneyLeftLabel}" TextColor="#eee" HorizontalOptions="Start" VerticalOptions="End"/>
-                            <Label Grid.Row="1" Text="{Binding MoneyLeft}" TextColor="#eee" HorizontalOptions="Start" VerticalOptions="Start" FontSize="24" FontAttributes="Bold"/>
-                            <Label Grid.Column="1" Text="{Binding MonthName}" TextColor="#eee" HorizontalOptions="End" VerticalOptions="End" FontSize="24" FontAttributes="Bold"/>
-                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding Year}" TextColor="#eee" HorizontalOptions="End"  VerticalOptions="Start"/>
-                        </Grid>
+                        <StackLayout>
+                            <BoxView HeightRequest="6"/>
+                            <Grid BackgroundColor="{Binding BackgroundColor}" Padding="12" RowSpacing="0" ColumnSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{res:Localize MoneyLeftLabel}" TextColor="#eee" HorizontalOptions="Start" VerticalOptions="End"/>
+                                <Label Grid.Row="1" Text="{Binding MoneyLeft}" TextColor="#eee" HorizontalOptions="Start" VerticalOptions="Start" FontSize="24" FontAttributes="Bold"/>
+                                <Label Grid.Column="1" Text="{Binding MonthName}" TextColor="#eee" HorizontalOptions="End" VerticalOptions="End" FontSize="24" FontAttributes="Bold"/>
+                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding Year}" TextColor="#eee" HorizontalOptions="End"  VerticalOptions="Start"/>
+                            </Grid>
+                            <BoxView HeightRequest="6"/>
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -7,7 +7,7 @@
              Title="{res:Localize MonthEditPageTitle}"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
               Padding="12">
-    <ListView IsGroupingEnabled="True" GroupDisplayBinding="{Binding Title}" ItemsSource="{Binding BudgetItems}">
+    <ListView IsGroupingEnabled="True" GroupDisplayBinding="{Binding Title}" ItemsSource="{Binding BudgetItems}" HasUnevenRows="True">
         <ListView.Header>
             <StackLayout>
                 <Label Text="{res:Localize Month}"/>
@@ -21,12 +21,13 @@
         <ListView.GroupHeaderTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <Grid>
+                    <Grid Margin="0,6">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <Label Text="{Binding Title}" VerticalTextAlignment="Center"/>
+
                         <ffimageloadingsvg:SvgCachedImage Grid.Column="1" WidthRequest="24" HeightRequest="24" Source="resource://SimpleBudgetFreshMvvm.Resources.Svg.add.svg">
                             <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding BindingContext.AddExpeseCmd, Source={x:Reference Name=RootView}}" CommandParameter="{Binding Type}"/>
@@ -39,7 +40,7 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <Grid>
+                    <Grid Margin="0,6">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="*"/>
@@ -47,6 +48,7 @@
                         </Grid.ColumnDefinitions>
                         <Entry Text="{Binding Name, Mode=TwoWay}" Margin="0,0,12,0"/>
                         <Entry Grid.Column="1" Text="{Binding Amount, Mode=TwoWay}" HorizontalTextAlignment="End" />
+
                         <ffimageloadingsvg:SvgCachedImage Grid.Column="2" WidthRequest="24" HeightRequest="24" Source="resource://SimpleBudgetFreshMvvm.Resources.Svg.delete.svg">
                             <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding BindingContext.DeleteExpeseCmd, Source={x:Reference Name=RootView}}" CommandParameter="{Binding}"/>
